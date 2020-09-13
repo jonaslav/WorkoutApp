@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="workoutApp.Controller">
+   <children>
+      <TabPane prefHeight="650.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Workout Table">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="800.0">
+                     <children>
+                        <TableView fx:id="tableView" onSort="#addBtn" prefHeight="350.0" prefWidth="720.0" AnchorPane.bottomAnchor="255.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="45.0">
+                          <columns>
+                            <TableColumn fx:id="colEx" editable="false" prefWidth="240.0" sortable="false" text="Exercise" />
+                            <TableColumn fx:id="colRep" editable="false" prefWidth="160.0" sortable="false" text="Repetitions" />
+                              <TableColumn fx:id="colSet" editable="false" prefWidth="160.0" sortable="false" text="Sets" />
+                              <TableColumn fx:id="colKg" editable="false" prefWidth="159.0" sortable="false" text="Kg" />
+                          </columns>
+                        </TableView>
+                        <AnchorPane layoutX="40.0" layoutY="383.0" prefHeight="77.0" prefWidth="720.0">
+                           <children>
+                              <AnchorPane prefHeight="77.0" prefWidth="180.0">
+                                 <children>
+                                    <Text layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exercise name:" />
+                                    <TextField fx:id="inputName" layoutX="16.0" layoutY="26.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="180.0" prefHeight="77.0" prefWidth="180.0">
+                                 <children>
+                                    <Text layoutX="16.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of repetitions:" />
+                                    <TextField fx:id="inputRep" layoutX="16.0" layoutY="26.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="360.0" prefHeight="77.0" prefWidth="180.0">
+                                 <children>
+                                    <Text layoutX="16.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of sets:" />
+                                    <TextField fx:id="inputSet" layoutX="16.0" layoutY="26.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="540.0" prefHeight="77.0" prefWidth="180.0">
+                                 <children>
+                                    <Text layoutX="16.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight in Kg:" />
+                                    <TextField fx:id="inputKg" layoutX="16.0" layoutY="26.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Button defaultButton="true" layoutX="40.0" layoutY="479.0" mnemonicParsing="false" onAction="#addBtn" prefHeight="42.0" prefWidth="410.0" text="Add exercise to program" textAlignment="CENTER" />
+                        <Button layoutX="14.0" layoutY="582.0" mnemonicParsing="false" onAction="#saveBtn" prefHeight="25.0" prefWidth="139.0" text="Save" />
+                        <Button layoutX="520.0" layoutY="479.0" mnemonicParsing="false" onAction="#removeBtn" prefHeight="42.0" prefWidth="240.0" text="Remove" />
+                        <Button layoutX="651.0" layoutY="549.0" mnemonicParsing="false" onAction="#removeAllBtn" prefHeight="25.0" prefWidth="109.0" text="Remove all" />
+                        <Text layoutX="40.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*All fields must be filled for you to be able to add an exercise!" wrappingWidth="409.13671875">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Max Calculation">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here you can calculate what your 1RM (your one rep maximum) is, in the different exercises. You will need to type in how many reps you can do, of a certian kg." wrappingWidth="607.13671875" />
+                        <AnchorPane layoutX="24.0" layoutY="90.0" prefHeight="79.0" prefWidth="487.0">
+                           <children>
+                              <Text layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bench press:" wrappingWidth="70.13671875" />
+                              <TextField fx:id="benchRepInpt" alignment="CENTER" layoutX="95.0" layoutY="27.0" prefHeight="25.0" prefWidth="75.0" promptText="Reps" />
+                              <TextField fx:id="benchKgInpt" alignment="CENTER" layoutX="206.0" layoutY="27.0" prefHeight="25.0" prefWidth="75.0" promptText="Kg" />
+                              <TextField fx:id="benchRMOut" alignment="CENTER" editable="false" layoutX="403.0" layoutY="27.0" prefHeight="25.0" prefWidth="70.0" />
+                              <Text layoutX="325.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1RM Weight:" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="24.0" layoutY="159.0" prefHeight="79.0" prefWidth="487.0">
+                           <children>
+                              <Text layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Squats:" wrappingWidth="70.13671875" />
+                              <TextField fx:id="squatRepInpt" alignment="TOP_CENTER" layoutX="95.0" layoutY="27.0" prefHeight="25.0" prefWidth="75.0" promptText="Reps" />
+                              <TextField fx:id="squatKgInpt" alignment="CENTER" layoutX="206.0" layoutY="27.0" prefHeight="25.0" prefWidth="75.0" promptText="Kg" />
+                              <TextField fx:id="squatRMOut" alignment="CENTER" editable="false" layoutX="403.0" layoutY="27.0" prefHeight="25.0" prefWidth="70.0" />
+                              <Text layoutX="325.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1RM Weight:" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="24.0" layoutY="238.0" prefHeight="79.0" prefWidth="487.0">
+                           <children>
+                              <Text layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dead lift:" wrappingWidth="60.13671875" />
+                              <TextField fx:id="deadRepInpt" alignment="CENTER" layoutX="95.0" layoutY="27.0" prefHeight="25.0" prefWidth="75.0" promptText="Reps" />
+                              <TextField fx:id="deadKgInpt" alignment="CENTER" layoutX="206.0" layoutY="27.0" prefHeight="25.0" prefWidth="75.0" promptText="Kg" />
+                              <TextField fx:id="deadRMOut" alignment="CENTER" editable="false" layoutX="403.0" layoutY="27.0" prefHeight="25.0" prefWidth="70.0" />
+                              <Text layoutX="325.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1RM Weight:" />
+                           </children>
+                        </AnchorPane>
+                        <Button layoutX="556.0" layoutY="117.0" mnemonicParsing="false" onAction="#calcBtnBench" prefHeight="25.0" prefWidth="131.0" text="Calculate" />
+                        <Button layoutX="556.0" layoutY="186.0" mnemonicParsing="false" onAction="#calcBtnSquat" prefHeight="25.0" prefWidth="131.0" text="Calculate" />
+                        <Button layoutX="556.0" layoutY="265.0" mnemonicParsing="false" onAction="#calcBtnDead" prefHeight="25.0" prefWidth="131.0" text="Calculate" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
